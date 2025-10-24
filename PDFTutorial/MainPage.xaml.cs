@@ -5,9 +5,11 @@ using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.Kernel.Geom;
 using Microsoft.Maui.Controls;
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Maui.Storage;
+using PdfCell = iText.Layout.Element.Cell;
+using iTextHorizontalAlignment = iText.Layout.Properties.HorizontalAlignment;
+using iTextTextAlignment = iText.Layout.Properties.TextAlignment;
 
 namespace PDFTutorial
 {
@@ -59,7 +61,7 @@ namespace PDFTutorial
 
                 if (!string.IsNullOrEmpty(filePath))
                 {
-                    StatusLabel.Text = $"PDF successfully saved to: {Path.GetFileName(filePath)}";
+                    StatusLabel.Text = $"PDF successfully saved to: {System.IO.Path.GetFileName(filePath)}";
                     await DisplayPDF(filePath);
                 }
                 else
@@ -90,7 +92,7 @@ namespace PDFTutorial
             // 1. Define the save path
             // Use FileSystem.Current.AppDataDirectory for reliable, app-private storage
             string fileName = $"CarReport_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
-            string filePath = Path.Combine(FileSystem.Current.AppDataDirectory, fileName);
+            string filePath = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, fileName);
 
             // Must dispose of writer and document to finalize the file handle
             using (var writer = new PdfWriter(filePath))
@@ -102,9 +104,9 @@ namespace PDFTutorial
 
                 // --- 2. Add Content: Title ---
                 var title = new Paragraph("Vehicle Specifications Report")
-                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetTextAlignment(iTextTextAlignment.CENTER)
                     .SetFontSize(24)
-                    .SetBold()
+                    .SetFont(iText.Kernel.Font.PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA_BOLD))
                     .SetFontColor(iText.Kernel.Colors.ColorConstants.BLUE)
                     .SetMarginBottom(20);
                 document.Add(title);
@@ -113,20 +115,23 @@ namespace PDFTutorial
                 document.Add(new Paragraph($"Report generated on: {DateTime.Now:MMMM dd, yyyy}"));
                 document.Add(new Paragraph($"VIN: {car.VIN}")
                     .SetFontSize(14)
-                    .SetBold()
+                    .SetFont(iText.Kernel.Font.PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA_BOLD))
                     .SetMarginBottom(30));
 
                 // --- 4. Add Content: Detailed Table (using a 2-column layout) ---
                 float[] columnWidths = { 200f, 300f };
-                Table table = new Table(UnitValue.CreatePixelArray(columnWidths))
+                Table table = new Table(UnitValue.CreatePercentArray(columnWidths))
                     .SetWidth(UnitValue.CreatePercentValue(80))
-                    .SetHorizontalAlignment(HorizontalAlignment.CENTER);
+                    .SetHorizontalAlignment(iTextHorizontalAlignment.CENTER);
 
                 // Helper to add a formatted row
                 void AddTableRow(string label, string value)
                 {
-                    table.AddCell(new Cell().Add(new Paragraph(label).SetBold()).SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY));
-                    table.AddCell(new Cell().Add(new Paragraph(value)));
+                    table.AddCell(new PdfCell().Add(
+                        new Paragraph(label)
+                            .SetFont(iText.Kernel.Font.PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA_BOLD))
+                    ).SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY));
+                    table.AddCell(new PdfCell().Add(new Paragraph(value)));
                 }
 
                 AddTableRow("Manufacturer", car.Make);
@@ -141,7 +146,7 @@ namespace PDFTutorial
 
                 // --- 5. Add Content: Footer ---
                 document.Add(new Paragraph("\n\n-- End of Report --")
-                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetTextAlignment(iTextTextAlignment.CENTER)
                     .SetFontSize(12)
                     .SetFontColor(iText.Kernel.Colors.ColorConstants.GRAY));
 

@@ -28,37 +28,40 @@
         <VerticalStackLayout Spacing="20" Padding="30">
             <Label Text="PDF Report Generator" Style="{StaticResource HeaderLabel}"
                    HorizontalOptions="Center"/>
-            <Frame Padding="20" CornerRadius="10" BackgroundColor="#F5F9FD" HasShadow="True">
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" 
-                      ColumnDefinitions="Auto, *" RowSpacing="5" ColumnSpacing="15">
-                    <Label Text="Vehicle Identification Number (VIN):"
-                           Grid.Row="0" Grid.Column="0"/>
-                    <Label x:Name="VinLabel" Grid.Row="0" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
+            <!-- Replace the obsolete Frame with Border -->
+            <Border Stroke="#F5F9FD" StrokeThickness="1" Background="#F5F9FD" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Padding="20">
+                    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" 
+                          ColumnDefinitions="Auto, *" RowSpacing="5" ColumnSpacing="15">
+                        <Label Text="Vehicle Identification Number (VIN):"
+                               Grid.Row="0" Grid.Column="0"/>
+                        <Label x:Name="VinLabel" Grid.Row="0" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
 
-                    <Label Text="Make:" Grid.Row="1" Grid.Column="0"/>
-                    <Label x:Name="MakeLabel" Grid.Row="1" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
+                        <Label Text="Make:" Grid.Row="1" Grid.Column="0"/>
+                        <Label x:Name="MakeLabel" Grid.Row="1" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
 
-                    <Label Text="Model:" Grid.Row="2" Grid.Column="0"/>
-                    <Label x:Name="VinLabel" Grid.Row="2" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
+                        <Label Text="Model:" Grid.Row="2" Grid.Column="0"/>
+                        <Label x:Name="ModelLabel" Grid.Row="2" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
 
-                    <Label Text="Year" Grid.Row="3" Grid.Column="0"/>
-                    <Label x:Name="VinLabel" Grid.Row="3" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
+                        <Label Text="Year" Grid.Row="3" Grid.Column="0"/>
+                        <Label x:Name="YearLabel" Grid.Row="3" Grid.Column="1" Style="{StaticResource ValueLabel}"/>
 
-                    <Label Text="Color:" Grid.Row="4" Grid.Column="0" />
-                    <Label x:Name="ColorLabel" Grid.Row="4" Grid.Column="1" Style="{StaticResource ValueLabel}" />
+                        <Label Text="Color:" Grid.Row="4" Grid.Column="0" />
+                        <Label x:Name="ColorLabel" Grid.Row="4" Grid.Column="1" Style="{StaticResource ValueLabel}" />
 
-                    <Label Text="Engine Size (L):" Grid.Row="5" Grid.Column="0" />
-                    <Label x:Name="EngineLabel" Grid.Row="5" Grid.Column="1" Style="{StaticResource ValueLabel}" />
+                        <Label Text="Engine Size (L):" Grid.Row="5" Grid.Column="0" />
+                        <Label x:Name="EngineLabel" Grid.Row="5" Grid.Column="1" Style="{StaticResource ValueLabel}" />
 
-                    <Label Text="Horsepower (HP):" Grid.Row="6" Grid.Column="0" />
-                    <Label x:Name="HpLabel" Grid.Row="6" Grid.Column="1" Style="{StaticResource ValueLabel}" />
+                        <Label Text="Horsepower (HP):" Grid.Row="6" Grid.Column="0" />
+                        <Label x:Name="HpLabel" Grid.Row="6" Grid.Column="1" Style="{StaticResource ValueLabel}" />
 
-                    <Label Text="Price (USD):" Grid.Row="7" Grid.Column="0" />
-                    <Label x:Name="PriceLabel" Grid.Row="7" Grid.Column="1" Style="{StaticResource ValueLabel}" TextColor="#007BFF" />
-                </Grid>
-            </Frame>
+                        <Label Text="Price (USD):" Grid.Row="7" Grid.Column="0" />
+                        <Label x:Name="PriceLabel" Grid.Row="7" Grid.Column="1" Style="{StaticResource ValueLabel}" TextColor="#007BFF" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
             <Button Text="Generate Car Report PDF"
-                    Clicked="OnGeneratePDfClicked"
+                    Clicked="OnGeneratePDFClicked"
                     Margin="0, 20, 0, 0"
                     BackgroundColor="#007BFF"
                     TextColor="White"
