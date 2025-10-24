@@ -1,0 +1,64 @@
+﻿NET MAUI / Xamarin specific
+
+**/.user
+**/.bak
+**/.pdb
+**/.resharper
+**/.sou
+**/.scc
+**/.suo
+**/.userprefs
+**/*-E404E208-A7D6-4E90-951E-FE8957C0A746.json
+
+Build results
+
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.log
+.vspscc
+**/[Cc]om.apple..plist
+**/MyDS_Store
+
+Packages
+
+/packages/
+/node_modules/
+/bower_components/
+/jspm_packages/
+/lib/
+/dist/
+/out/
+/publish/
+/tmp/
+
+Visual Studio / IDE
+
+.vs/
+*.csproj.user
+*.sln.docstates
+*.vsp
+vssver.scc
+vssver2.scc
+
+.NET MAUI specific
+
+.DS_Store
+*.apk
+*.aab
+*.ipa
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.vsix
+.vsixmanifest
+.fuse-hidden
+
+iText temporary files or generated files
+
+This ensures generated PDFs are not accidentally committed
+
+/GeneratedReports/
+*.pdf
