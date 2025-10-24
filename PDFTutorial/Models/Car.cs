@@ -8,7 +8,7 @@ namespace PDFTutorial.Models
 {
     public class Car
     {
-        public string VIN { get; set; } = "XYZ1234567890ABC"; // Default VIN for a car.
+        public string VIN { get; set; } = "XYZ1234567890ABC"; 
         public string Make { get; set; } = "Ford";
         public string Model { get; set; } = "Mustang GT";
         public int Year { get; set; } = 2024;

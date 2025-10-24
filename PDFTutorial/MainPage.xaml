@@ -28,7 +28,7 @@
         <VerticalStackLayout Spacing="20" Padding="30">
             <Label Text="PDF Report Generator" Style="{StaticResource HeaderLabel}"
                    HorizontalOptions="Center"/>
-            <!-- Replace the obsolete Frame with Border -->
+            
             <Border Stroke="#F5F9FD" StrokeThickness="1" Background="#F5F9FD" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout Padding="20">
                     <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" 
