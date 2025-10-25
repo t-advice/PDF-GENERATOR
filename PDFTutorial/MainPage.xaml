@@ -63,7 +63,7 @@
             <Button Text="Generate Car Report PDF"
                     Clicked="OnGeneratePDFClicked"
                     Margin="0, 20, 0, 0"
-                    BackgroundColor="#007BFF"
+                    BackgroundColor="Green"
                     TextColor="White"
                     CornerRadius="8"
                     HeightRequest="50"
