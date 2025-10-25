@@ -28,11 +28,11 @@ cd PDFTutorial
 
 2. Install NuGet Packages
 
-This project relies on the iText7 library for PDF manipulation. You need to install the following NuGet packages in your PDFTutorial project:
+This project relies on the iText library for PDF manipulation. You need to install the following NuGet packages in your PDFTutorial project:
 
-iText7 Core: The main library for basic PDF generation.
+iText Core: The main library for basic PDF generation.
 
-dotnet add package iText7
+dotnet add package iText
 
 
 iText7 Layout (Recommended): Used for higher-level document layout features like paragraphs, lists, and tables.
