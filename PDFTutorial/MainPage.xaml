@@ -28,6 +28,7 @@
         <VerticalStackLayout Spacing="20" Padding="30">
             <Label Text="PDF Report Generator" Style="{StaticResource HeaderLabel}"
                    HorizontalOptions="Center"/>
+            <Image x:Name="CarImage" HeightRequest="200" Aspect="AspectFit" Margin="0,0,0,10" />
             
             <Border Stroke="#F5F9FD" StrokeThickness="1" Background="#F5F9FD" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout Padding="20">
