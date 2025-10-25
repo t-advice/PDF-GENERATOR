@@ -28,7 +28,7 @@
         <VerticalStackLayout Spacing="20" Padding="30">
             <Label Text="PDF Report Generator" Style="{StaticResource HeaderLabel}"
                    HorizontalOptions="Center"/>
-            <Image x:Name="CarImage" HeightRequest="200" Aspect="AspectFit" Margin="0,0,0,10" />
+            <Image x:Name="CarImage" HeightRequest="200" Aspect="AspectFit" Margin="0,0,0,10" />    
             
             <Border Stroke="#F5F9FD" StrokeThickness="1" Background="#F5F9FD" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout Padding="20">
@@ -61,15 +61,29 @@
                     </Grid>
                 </VerticalStackLayout>
             </Border>
-            <Button Text="Generate Car Report PDF"
-                    Clicked="OnGeneratePDFClicked"
-                    Margin="0, 20, 0, 0"
-                    BackgroundColor="Green"
-                    TextColor="White"
-                    CornerRadius="8"
-                    HeightRequest="50"
-                    FontSize="18"
-                    FontAttributes="Bold"/>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Generate Car Report PDF"
+                        Clicked="OnGeneratePDFClicked"
+                        Margin="0, 20, 0, 0"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        FontSize="18"
+                        FontAttributes="Bold"/>
+
+                <Button x:Name="ShareButton"
+                        Text="Share PDF"
+                        Clicked="OnSharePDFClicked"
+                        IsVisible="False"
+                        Margin="0, 20, 0, 0"
+                        BackgroundColor="#007BFF"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        FontSize="18"
+                        FontAttributes="Bold"/>
+            </HorizontalStackLayout>
 
             <ActivityIndicator x:Name="ActivitySpinner" IsRunning="False"/>
 
